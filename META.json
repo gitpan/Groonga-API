@@ -37,7 +37,8 @@
             "Path::Extended" : "0",
             "Test::Differences" : "0",
             "Test::More" : "0.88",
-            "Test::UseAllModules" : "0.10"
+            "Test::UseAllModules" : "0.10",
+            "version" : "0.77"
          }
       }
    },
@@ -47,5 +48,5 @@
          "url" : "https://github.com/charsbar/groonga-api"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }

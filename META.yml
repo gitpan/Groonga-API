@@ -24,6 +24,7 @@ requires:
   Test::Differences: 0
   Test::More: 0.88
   Test::UseAllModules: 0.10
+  version: 0.77
 resources:
   repository: https://github.com/charsbar/groonga-api
-version: 0.02
+version: 0.03

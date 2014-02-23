@@ -32,6 +32,7 @@ my %params = (
     'Test::Differences'   => 0,
     'Test::More'          => '0.88',
     'Test::UseAllModules' => '0.10',
+    'version'             => '0.77',
   },
   META_MERGE => {
     resources => {
@@ -60,10 +61,11 @@ sub check_env {
 
   my @incpath = qw(/usr/local/include /usr/include);
   if ($win32 && eval {require Win32}) {
-    push @incpath, Win32::GetShortPathName('c:\Program Files\groonga\include');
+    my $path = Win32::GetShortPathName('c:\Program Files\groonga\include');
+    push @incpath, $path if $path;
   }
   if ($ENV{GROONGA_INC}) {
-    my $inc = $ENV{GROONGA_INC};
+    $inc = $ENV{GROONGA_INC};
     $inc =~ s|^["']||;
     $inc =~ s|["']$||;
     $inc =~ s/^\-I//;
@@ -258,7 +260,7 @@ sub extract_apis {
     qw/logger_set query_logger_set/,
 
     # TODO: snip (likely to be changed in groonga 3.0?)
-    qw/snip_open snip_close snip_add_cond snip_exec snip_get_result expr_snip/,
+    qw/snip_open snip_close snip_add_cond snip_exec snip_get_result expr_snip expr_snip_add_conditions snip_get_normalizer snip_set_normalizer/,
 
     # TODO: util?
     qw/charlen time_now/,
